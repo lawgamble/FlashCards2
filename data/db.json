@@ -1,0 +1,118 @@
+{
+  "decks": [
+    {
+      "name": "Rendering In React ",
+      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation.  ",
+      "id": 1
+    },
+    {
+      "name": "React Router",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
+      "id": 2
+    },
+    {
+      "name": "New Deck",
+      "description": "This is a new Deck that needs a  minimum of 3 cards to study!",
+      "id": 3
+    },
+    {
+      "name": "What has ears but cannot hear?",
+      "description": "What has ears but cannot hear?",
+      "id": 4
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "front": "Differentiate between Real DOM and Virtual DOM.",
+      "back": "Virtual DOM updates are faster but do not directly update the HTML",
+      "deckId": 1
+    },
+    {
+      "id": 2,
+      "front": "How do you modify the state of a different React component?",
+      "back": "Not at all! State is visible to the component only.",
+      "deckId": 1
+    },
+    {
+      "id": 3,
+      "front": "How do you pass data 'down' to a React child component?",
+      "back": "As properties or props",
+      "deckId": 1
+    },
+    {
+      "front": "What path will match the follow Route?\n<Route>\n  <NotFound />\n</Route>",
+      "back": "All paths. A route with no path matches all URL's",
+      "deckId": 2,
+      "id": 4
+    },
+    {
+      "front": "What does <Switch> do?",
+      "back": "Renders the first matching child <Route> ",
+      "deckId": 2,
+      "id": 5
+    },
+    {
+      "id": 6,
+      "front": "",
+      "back": ""
+    },
+    {
+      "id": 7,
+      "front": "123",
+      "back": "1234"
+    },
+    {
+      "id": 8,
+      "front": "12345",
+      "back": "12345"
+    },
+    {
+      "id": 9,
+      "front": "12",
+      "back": "12"
+    },
+    {
+      "id": 10,
+      "front": "12",
+      "back": "12"
+    },
+    {
+      "id": 11,
+      "front": "weofijhwoeif",
+      "back": "lbdefciuwehgfviu"
+    },
+    {
+      "id": 13,
+      "front": "1234",
+      "back": "1234"
+    },
+    {
+      "id": 14,
+      "front": "qwerty",
+      "back": "qweerty"
+    },
+    {
+      "id": 15,
+      "front": "12",
+      "back": "12"
+    },
+    {
+      "id": 16,
+      "front": "qw",
+      "back": "qw"
+    },
+    {
+      "front": "card 2",
+      "back": "card 2",
+      "deckId": 3,
+      "id": 19
+    },
+    {
+      "front": "card 12",
+      "back": "card213e",
+      "deckId": 3,
+      "id": 20
+    }
+  ]
+}
