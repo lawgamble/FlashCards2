@@ -165,7 +165,9 @@ const CreateEditCard = () => {
   );
   return (
     <div>
-      {location.pathname.includes("edit") ? editCardForm : createCardForm}
+      {location.pathname.includes(`decks/${deckId}/cards/${cardId}/edit`)
+        ? editCardForm
+        : createCardForm}
     </div>
   );
 };
