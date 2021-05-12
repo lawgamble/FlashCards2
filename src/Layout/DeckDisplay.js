@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { listDecks } from "./../utils/api/index";
 import { deleteDeck } from "./../utils/api/index";
 import { Link } from "react-router-dom";
 
-const DeckDisplay = ({ decks, setDecks }) => {
+const DeckDisplay = () => {
+  const [decks, setDecks] = useState([]);
+
   useEffect(() => {
-    listDecks().then(setDecks);
+    async function callDeck() {
+      await listDecks().then(setDecks);
+    }
+    callDeck();
   }, [setDecks]);
 
-  async function deleteHandler(id) {
+  function deleteHandler(id) {
     const deleteAlert = window.confirm(
       "You will not be able to recover the deck!"
     );
@@ -20,6 +25,11 @@ const DeckDisplay = ({ decks, setDecks }) => {
 
   return (
     <div>
+      <Link to="/decks/new">
+        <button type="button" className="btn btn-primary">
+          + Create Deck
+        </button>
+      </Link>
       {decks.map((deck, index) => (
         <div className="card" key={index} style={{ width: "50rem" }}>
           <div className="card-body">

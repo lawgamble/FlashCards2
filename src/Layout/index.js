@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import { Route, Switch, useParams } from "react-router-dom";
-import LandingPage from "./LandingPage";
+import { Route, Switch } from "react-router-dom";
 import CreateDeck from "./CreateDeck";
 import Study from "./Study";
 import ViewDeck from "./ViewDeck";
 import EditDeck from "./EditDeck";
 import CreateEditCard from "./CreateEditCard";
+import DeckDisplay from "./DeckDisplay";
 
 function Layout() {
-  const [decks, setDecks] = useState([]);
-  const { deckId } = useParams();
-
   return (
     <div>
       <Header />
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <LandingPage decks={decks} setDecks={setDecks} />
+            <DeckDisplay />
           </Route>
           <Route path="/decks/new">
             <CreateDeck />
@@ -31,7 +28,7 @@ function Layout() {
             <CreateEditCard />
           </Route>
           <Route path="/decks/:deckId/cards/new">
-            <CreateEditCard deckId={deckId} decks={decks} />
+            <CreateEditCard />
           </Route>
           <Route path="/decks/:deckId/edit">
             <EditDeck />

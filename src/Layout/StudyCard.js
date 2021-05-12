@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 const StudyCard = ({ deckCards, deckId }) => {
-  const [isActive, setIsActive] = useState(false);
+  // console.log("StudyCard", deckCards);
+  const [nextButton, setNextButton] = useState(false);
   const [cardIndex, setCardIndex] = useState(0);
   let history = useHistory();
 
   const clickHandler = () => {
-    setIsActive(!isActive);
+    setNextButton(!nextButton);
   };
 
   const lessThanThree = (
     <div>
       <h2>Not enough cards</h2>
       <p>
+        {" "}
         You need at least 3 cards to study. There are only{" "}
         <code>{deckCards.length}</code> cards in this deck.
       </p>
@@ -35,7 +37,7 @@ const StudyCard = ({ deckCards, deckId }) => {
   }
 
   function nextButtonHandler() {
-    setIsActive(!isActive);
+    setNextButton(!nextButton);
     setCardIndex(cardIndex + 1);
     if (cardIndex + 1 === deckCards.length) {
       windowAlert();
@@ -49,7 +51,7 @@ const StudyCard = ({ deckCards, deckId }) => {
           <h5 className="card-title">
             Card {index + 1} of {deckCards.length}
           </h5>
-          <p className="card-text">{isActive ? card.back : card.front}</p>
+          <p className="card-text">{nextButton ? card.back : card.front}</p>
           <button
             type="button"
             className="btn btn-primary"
@@ -57,14 +59,15 @@ const StudyCard = ({ deckCards, deckId }) => {
           >
             Flip
           </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            style={isActive ? { display: "inline" } : { display: "none" }}
-            onClick={nextButtonHandler}
-          >
-            Next
-          </button>
+          {nextButton && (
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={nextButtonHandler}
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -72,11 +75,7 @@ const StudyCard = ({ deckCards, deckId }) => {
 
   return (
     <div>
-      {deckCards.length < 3 ? (
-        <p>{lessThanThree}</p>
-      ) : (
-        <div>{deckCardsMapped[cardIndex]}</div>
-      )}
+      {deckCards.length < 3 ? lessThanThree : deckCardsMapped[cardIndex]}
     </div>
   );
 };

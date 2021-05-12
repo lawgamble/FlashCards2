@@ -14,11 +14,15 @@ const ViewDeck = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    readDeck(deckId).then(setDeck);
-    listCards(deckId).then(setCards);
+    async function loadDeck() {
+      const deckDisplay = await readDeck(deckId);
+      setDeck(deckDisplay);
+      setCards(deckDisplay.cards);
+    }
+    loadDeck();
   }, [deckId]);
 
-  async function deleteHandler(cardId) {
+  function deleteHandler(cardId) {
     const deleteAlert = window.confirm(
       "You will not be able to recover the card!"
     );
@@ -28,7 +32,7 @@ const ViewDeck = () => {
     }
   }
 
-  async function deckDeleteHandler(id) {
+  function deckDeleteHandler(id) {
     const deleteAlert = window.confirm(
       "You will not be able to recover the deck!"
     );
@@ -41,8 +45,14 @@ const ViewDeck = () => {
   const cardDisplay = cards.map((card, index) => (
     <div className="card" key={index}>
       <div className="card-body">
-        <b>Front:</b> {card.front} <br />
-        <b>Back:</b> {card.back} <br /> <br />
+        <div>
+          <span>
+            <b>Front:</b> {card.front} <br />
+          </span>
+          <span>
+            <b>Back:</b> {card.back} <br /> <br />
+          </span>
+        </div>
         <Link to={`/decks/${deckId}/cards/${card.id}/edit`}>
           <button className="btn btn-secondary">Edit</button>{" "}
         </Link>

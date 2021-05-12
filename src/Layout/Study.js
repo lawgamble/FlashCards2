@@ -9,8 +9,12 @@ const Study = () => {
   const { deckId } = useParams();
 
   useEffect(() => {
-    readDeck(deckId).then(setStudyDisplay);
-    listCards(deckId).then(setDeckCards);
+    async function callDeck() {
+      const display = await readDeck(deckId);
+      setStudyDisplay(display);
+      setDeckCards(display.cards);
+    }
+    callDeck();
   }, [deckId]);
 
   return (

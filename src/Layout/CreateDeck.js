@@ -36,9 +36,7 @@ const CreateDeck = () => {
       <h3>Create Deck</h3>
       <br />
       <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">
-          Deck Name
-        </label>
+        <label className="form-label">Deck Name</label>
         <input
           type="text"
           className="form-control"
@@ -48,9 +46,7 @@ const CreateDeck = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleFormControlTextarea1" className="form-label">
-          Description of Deck
-        </label>
+        <label className="form-label">Description of Deck</label>
         <textarea
           className="form-control"
           id="exampleFormControlTextarea1"

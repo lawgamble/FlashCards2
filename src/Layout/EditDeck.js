@@ -55,7 +55,7 @@ const EditDeck = () => {
       <br />
       <form>
         <div className="form-group">
-          <label for="exampleFormControlInput1"></label>
+          <label></label>
           <input
             type="text"
             className="form-control"
@@ -65,7 +65,7 @@ const EditDeck = () => {
           />
         </div>
         <div className="form-group">
-          <label for="exampleFormControlTextarea1"></label>
+          <label></label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
