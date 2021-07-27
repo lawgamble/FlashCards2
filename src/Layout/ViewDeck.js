@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  listCards,
-  readDeck,
-  deleteCard,
-  deleteDeck,
-} from "./../utils/api/index";
+import { readDeck, deleteCard, deleteDeck } from "./../utils/api/index";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const ViewDeck = () => {

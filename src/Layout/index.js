@@ -8,6 +8,7 @@ import ViewDeck from "./ViewDeck";
 import EditDeck from "./EditDeck";
 import CreateEditCard from "./CreateEditCard";
 import DeckDisplay from "./DeckDisplay";
+import RandomPage from "./RandomPage";
 
 function Layout() {
   return (
@@ -35,6 +36,9 @@ function Layout() {
           </Route>
           <Route path="/decks/:deckId">
             <ViewDeck />
+          </Route>
+          <Route path="/random">
+            <RandomPage />
           </Route>
           <Route>
             <NotFound />
